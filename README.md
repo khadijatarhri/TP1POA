@@ -1,2 +1,2 @@
 # TP1POA
-Code et explications du TP1 de Programmation Objet Avancée
+Code et explications du TP1 concernant le multithreading en Java
