@@ -34,3 +34,10 @@ public class Aff implements Runnable {
        }
 	}
 }
+// Pourquoi le try-catch est nécessaire :
+
+// Gestion des interruptions : La méthode Thread.sleep() est sujette aux interruptions. Si tu fais simplement un Thread.sleep(1000); sans le try-catch, le programme ne pourra pas gérer une éventuelle interruption, et cela pourrait causer un crash ou un comportement inattendu.
+
+// Le return dans le catch : Lorsque l'exception InterruptedException est capturée, le return force la sortie du thread. Cela arrête l'exécution du thread en cours si une interruption se produit. Le fait de ne rien retourner directement n'a pas d'impact, car l'important est de sortir de la méthode run() proprement.
+
+// Tu ne peux pas écrire simplement Thread.sleep(1000); sans le try-catch, car Thread.sleep() lance une exception vérifiée (checked exception). En Java, pour toute exception vérifiée, il est nécessaire d'ajouter un bloc try-catch ou de propager l'exception avec le mot-clé throws.
